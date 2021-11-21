@@ -1,6 +1,6 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
-Recommendations / Remidiation on how to remediate the vulnerabilities.
+Recommendations / Remediation on how to remediate the vulnerabilities.
 
 ## AWS Config: Non Compliant Rules 
 
