@@ -1,6 +1,6 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
 
-a.  Not able to visualise attack on GuardDuty. GuardDuty should have found that Web Service instance allows SSH password and Web Service instance security group allows login SSH traffic and is open to the public..
+a.  GuardDuty should have found that Web Service instance allows SSH password and Web Service instance security group allows login SSH traffic and is open to the public..
 
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
 
