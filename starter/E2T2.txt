@@ -1,0 +1,70 @@
+Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+Recommendations / Remidiation on how to remediate the vulnerabilities.
+
+## AWS Config: Non Compliant Rules 
+
+
+Rule: securityhub-s3-bucket-logging-enabled-5bb37f47
+Description :  Checks whether logging is enabled for your S3 buckets. 
+Resources: Free recipes, secret recipes, VPC flow log S3 bucket 
+Remediation : Enable logging on the S3 buckets
+
+Rule: securityhub-s3-bucket-ssl-requests-only-58294c2c
+Description:  Checks whether S3 buckets have policies that require requests to use Secure Socket Layer (SSL). 
+Resources: All S3 buckets
+Remediation : In bucket policies explicitly deny access to HTTP requests
+
+Rule: securityhub-s3-bucket-server-side-encryption-enabled-bbb0c88d
+Description:  Checks that your Amazon S3 bucket either has Amazon S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption.
+Resources: All S3 buckets
+
+Remediation: Check option of default encryption
+
+
+Rule: securityhub-ec2-instance-managed-by-ssm-f5f97cf1
+Description:  Checks whether the Amazon EC2 instances in your account are managed by AWS Systems Manager. 
+Resource: EC2 Web Service Instance, Attack Instance
+Recommendation : Make sure E2 instance is managed by AWS Systems Manager
+
+Rule: securityhub-encrypted-volumes-0e588c69
+Description:  Checks whether the EBS volumes that are in an attached state are encrypted. If you specify the ID of a KMS key for encryption using the kmsId parameter, the rule checks if the EBS volumes in an attached state are encrypted with that KMS key. 
+Resource: EC2 Volume 
+
+Rule: securityhub-alb-http-to-https-redirection-check-0d7cab14
+Description:  Checks whether HTTP to HTTPS redirection is configured on all HTTP listeners of Application Load Balancers. The rule is NON_COMPLIANT if one or more HTTP listeners of Application Load Balancers do not have HTTP to HTTPS redirection configured. 
+Resource : ElasticLoadBalancingV2 LoadBalancer Web service
+Recommendation : Ensure that Load Balancers (ALBs) are configured to redirect HTTP traffic (port 80) to HTTPS (port 443).
+
+## Amazon Inspector - Findings 
+### Rules Package: Security Best Practices-1.0 
+
+Finding: Web Service EC2 Instance is configured to support password authentication over SSH. Password authentication is susceptible to brute-force attacks and should be disabled in favor of key-based authentication where possible.
+Description: This rule helps determine whether your EC2 instances are configured to support password authentication over the SSH protocol.
+
+Remediation : Disable password authentication over SSH on your EC2 instances and enable support for key-based authentication instead.
+
+Finding: Web Service EC2 Instance is configured tallow users to log in with root credentials over SSH, without having to use a command authenticated by a public key. This increases the likelihood of a successful brute-force attack.
+Description: This rule helps determine whether the SSH daemon is configured to permit logging in to your EC2 instance as root.
+
+Remediation: Disable SSH root account logins on EC2 instance to prevent root account logins over SSH
+
+
+### Rules package: Network Reachability-1.1 
+
+Finding: On instance i-0c17c04a15fd55871, process 'systemd-network' is listening on UDP port 68 which is associated with 'DHCP' and is reachable from the internet
+
+Recommendation: You can edit the Security Group sg-09bf1e7a71cf887b7  to remove access from the internet on port 68
+
+Finding: On Web Service EC2 Instance, process 'sshd' is listening on TCP port 22 which is associated with 'SSH' and is reachable from the internet
+
+Recommendation: Edit security sg-09bf1e7a71cf887b7 to remove access from the internet on port 22
+
+
+### Security Hub
+
+Finding: S3 Buckets (Secret Recipes + Free Recipes + VPC flow log) buckets should have server-side encryption enabled: 
+
+Finding: Security groups WebAppSG shouldn't allow ingress from 0.0.0.0/0 to port 3389 & 22
+
+Finding: EC2 instances should not have a public IPv4 address
