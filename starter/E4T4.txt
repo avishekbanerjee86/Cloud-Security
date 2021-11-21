@@ -14,4 +14,4 @@
 - No,It won't.  There won't be any  change to the encryption of the objects that existed in the bucket before default encryption was enabled. 
 
 # What would happen if the original cloud formation templates are applied to this environment.
-- I have used console to perform the activities. The original cloud formation will overwrite the changes done on the Security Groups, SSH password disabled, IAM role restrictions. In order to apply the changes to the environment, the cloud formation template would need to be updated.
+-  The original cloud formation will overwrite the changes done on the Security Groups, SSH password disabled, IAM role restrictions. In order to apply the changes to the environment, the cloud formation template would need to be updated.
