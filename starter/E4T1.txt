@@ -2,13 +2,13 @@
 
 a. We should remove SSH inbound rule on the WebAppSG Security Group
 b. We should create a private subnet inside the VPC to host the Web Service instance and allow inbound traffic from the application load balancer
-c. We should update Network Access Control List (NACL) in the private subnet to block inbound SSH traffic, 
+c. We should update Network Access Control List (NACL) in the private subnet to block inbound SSH traffic 
 d. We should block traffic from 0.0.0.0/0 except from port 80 and block port 22 in particular)
 e. We should update the AppLoadBalancerSG to only allow outbound traffic to the WebAppSG
 
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
 a. Allow Default encryption
-b. Update the c3-app-InstanceRole-13B91VKMQ3TWH IAM role policy to only allow read operations to the S3 public recipe buckets (resource)
-c. Update S3 bucket policy to only allow Read operations from a specific instance. 
+b. Update the c3-app-InstanceRole-13B91VKMQ3TWH IAM role policy to only allow read operations to the S3 public recipe buckets (S3 resource)
+c. Update S3 bucket policy to only allow Read operations from a specific instance 
 
 
