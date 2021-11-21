@@ -1,0 +1,13 @@
+Based on the architecture diagram, and the steps which have been taken so far to upload data and access the application web service, identified at least 2 obvious poor practices as it relates to security.
+
+# Poor practice 1
+This architecture  is not using private subnets therefore it exposes the servers to malicious traffic. The web server instance should be in a private subnet with firewall in place to only allow traffic from the AppLoadBalancer SG. This could be done by setting up the Security Group rules.
+ 
+The  AppLoadBalancer SG should also have a rule to only allow traffic from 0.0.0.0 port 80 and 443.
+
+# Poor practice 2
+At the moment The users are not authenticated against any identity provider. To secure this app and differentiate the users who have a privileged access, the users should need to be authenticated with an External Identity Provider. Once authenticated, the users will be provided an IAM role with temporary API credentials that will allow them to get access to the API.
+
+# Poor practice 3
+At present none of the S3 buckets are encrypted. To add a layer of encryption the default encryption should be set up on the S3 bucket. 
+The S3 buckets should also have bucket policy that allows only specific role to get access to the content.
