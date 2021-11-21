@@ -201,7 +201,7 @@ Answer : No,It won't.  There won't be any  change to the encryption of the objec
 
 4. The changes you made above were done through the console or CLI; describe the outcome if the original cloud formation templates are applied to this environment?
 
-Answer : I have used console to perform the activities. The original cloud formation will overwrite the changes done on the Security Groups, SSH password disabled, IAM role restrictions. In order to apply the changes to the environment, the cloud formation template would need to be updated.
+Answer : The original cloud formation will overwrite the changes done on the Security Groups, SSH password disabled, IAM role restrictions. In order to apply the changes to the environment, the cloud formation template would need to be updated.
 
 ## Exercise 5 - Designing a DevSecOps Pipeline
 
