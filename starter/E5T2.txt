@@ -1,13 +1,39 @@
 # Identify tools that will allow you to do the following:
 
-## Scan infrastructure as code templates
+## a. Scan infrastructure as code templates
+
+### Appropriate Tools:
+
+- Checkov
+- TFLint
+- Terrafirma
+- CloudSploit
+
 
 ### Example vulnerability
+- VPC flow logging disabled 
+- S3 bucket not encrypted
+- EBS volume encryption disabled
 
-##Scan AMI’s or containers for OS vulnerabilities
+## b. Scan AMI’s or containers for OS vulnerabilities
+
+### Appropriate Tools:
+- Anchore
+- Dagda
+- OpenSCAP
 
 ### Example vulnerability
+- Embedded clear text secrets
+- Use of untrusted images
+- Defects in Image Configuration
 
-##Scan an AWS environment for cloud configuration vulnerabilities
+## c. Scan an AWS environment for cloud configuration vulnerabilities
+
+### Appropriate Tools:
+- AWS Config
+- Cloud Custodian
+- Prowler
 
 ### Example vulnerability
+- Configuration changes on KMS, IAM policy
+- Data not encrypted
