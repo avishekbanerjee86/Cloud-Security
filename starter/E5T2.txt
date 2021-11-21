@@ -2,7 +2,7 @@
 
 ## a. Scan infrastructure as code templates
 
-### Appropriate Tools:
+### Tools:
 
 - Checkov
 - TFLint
@@ -17,7 +17,7 @@
 
 ## b. Scan AMI’s or containers for OS vulnerabilities
 
-### Appropriate Tools:
+### Tools:
 - Anchore
 - Dagda
 - OpenSCAP
@@ -29,7 +29,7 @@
 
 ## c. Scan an AWS environment for cloud configuration vulnerabilities
 
-### Appropriate Tools:
+### Tools:
 - AWS Config
 - Cloud Custodian
 - Prowler
